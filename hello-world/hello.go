@@ -17,15 +17,16 @@ func Hello(name string, language string) string {
 		name = "world"
 	}
 
-	prefix := englishPrefix
+	return fmt.Sprintf("%s, %s", createPrefix(language), name)
+}
 
-	if language == "Spanish" {
-		prefix = spanishPrefix
+func createPrefix(language string) string {
+	switch language {
+	case "Spanish":
+		return spanishPrefix
+	case "French":
+		return frenchPrefix
+	default:
+		return englishPrefix
 	}
-
-	if language == "French" {
-		prefix = frenchPrefix
-	}
-
-	return fmt.Sprintf("%s, %s", prefix, name)
 }
