@@ -7,6 +7,8 @@ import (
 )
 
 func TestHello(t *testing.T) {
-	Expect(t, Hello("")).To(EqualTo(`Hello, world`))
-	Expect(t, Hello("Chris")).To(EqualTo(`Hello, Chris`))
+	Expect(t, Hello("", "English")).To(EqualTo(`Hello, world`))
+	Expect(t, Hello("Chris", "English")).To(EqualTo(`Hello, Chris`))
+	Expect(t, Hello("Elodie", "Spanish")).To(EqualTo(`Hola, Elodie`))
+	Expect(t, Hello("Milo", "French")).To(EqualTo(`Bonjour, Milo`))
 }

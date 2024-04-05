@@ -3,12 +3,29 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(Hello(""))
+	fmt.Println(Hello("", "english"))
 }
 
-func Hello(name string) string {
+const (
+	spanishPrefix = "Hola"
+	englishPrefix = "Hello"
+	frenchPrefix  = "Bonjour"
+)
+
+func Hello(name string, language string) string {
 	if name == "" {
 		name = "world"
 	}
-	return "Hello, " + name
+
+	prefix := englishPrefix
+
+	if language == "Spanish" {
+		prefix = spanishPrefix
+	}
+
+	if language == "French" {
+		prefix = frenchPrefix
+	}
+
+	return fmt.Sprintf("%s, %s", prefix, name)
 }
