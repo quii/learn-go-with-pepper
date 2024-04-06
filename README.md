@@ -1,8 +1,8 @@
 # Learn Go with Pepper
 
-I am currently writing a hamcrest inspired matcher library for Go [called Pepper](https://github.com/quii/pepper). 
+I am currently writing a Hamcrest inspired matcher library for Go [called Pepper](https://github.com/quii/pepper). 
 
-I figured a good way to test it, would be to dogfood it, by working through my own course [learn go with tests](https://github.com/quii/learn-go-with-tests). 
+I figured a good way to test it, would be to [dogfood](https://en.wikipedia.org/wiki/Eating_your_own_dog_food#:~:text=Eating%20your%20own%20dog%20food%20or%20%22dogfooding%22%20is%20the%20practice,usage%20using%20product%20management%20techniques.) it, by working through my own course [Learn Go with Tests](https://github.com/quii/learn-go-with-tests). 
 
 It has already helped me iron out some usability issues, so im confident this will prove the worth of the library. 
 
@@ -19,7 +19,9 @@ func TestHello(t *testing.T) {
 
 ## Custom matchers for the win!
 
-The idea of Pepper is you can use it as a basic assertion library, much like other libraries out there, to do simple assertions like the ones in Hello World, but it is also extensible, allowing you to write your own "Matchers" for your domain. This helps you write tests with clearer test output, more consistently, and over the longer run, cheaply. 
+The idea of Pepper is you can use it as a basic assertion library, much like other libraries out there, to do simple assertions like the ones in Hello World, but it is also extensible, allowing you to write your own "Matchers" for your domain. 
+
+This helps you write tests with clearer test output, more consistently, and over the longer run, cheaply. 
 
 See how nicely this works for the shapes testing
 
@@ -34,7 +36,7 @@ func TestShapes(t *testing.T) {
 }
 ```
 
-We can declaratively test properties of shapes with custom matchers, and leveraging Pepper's composition tools with `And`. 
+We can declaratively test properties of shapes with custom matchers, and leveraging Pepper's composition tools like `And`. 
 
 Here are the matchers
 
