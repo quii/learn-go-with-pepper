@@ -2,3 +2,5 @@ github.com/quii/pepper v0.6.0 h1:hemRsWAx5iC4UKXtntcPvPpu9s2FNfL7ARvSLZ01S00=
 github.com/quii/pepper v0.6.0/go.mod h1:PGrKqtvsQ+9K/SY170JI6QvNw58QHCJLLocNUyBHl2E=
 github.com/quii/pepper v0.7.0 h1:k9t4p5bSl63g2huRV5VreSPgNP84KRLoc/f7VGGm0pc=
 github.com/quii/pepper v0.7.0/go.mod h1:PGrKqtvsQ+9K/SY170JI6QvNw58QHCJLLocNUyBHl2E=
+github.com/quii/pepper v0.8.0 h1:BRleWJonft8hqBddqdu3mS6IrfVDL6oNdzLQaG3N7Iw=
+github.com/quii/pepper v0.8.0/go.mod h1:PGrKqtvsQ+9K/SY170JI6QvNw58QHCJLLocNUyBHl2E=
