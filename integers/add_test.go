@@ -6,10 +6,10 @@ import (
 	"testing"
 )
 
-func TestAdder(t *testing.T) {
-	Expect(t, Add(2, 2)).To(Equal(4))
-}
-
 func Add(a, b int) int {
 	return a + b
+}
+
+func TestAdder(t *testing.T) {
+	Expect(t, Add(2, 2)).To(Equal(4))
 }
