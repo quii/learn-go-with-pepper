@@ -65,3 +65,13 @@ func HavePerimeter(want float64) Matcher[Shape] {
 ```
 
 If we were to add more shapes, we can re-use the matchers to test them. 
+
+## Whilst Pepper may look magical, it's just functions
+
+I found I could be using the same combination of matchers repeatedly. All I had to do was mash `extract method` in Intellij (command+option+m), and I could reduce that boilerplate safely and easily.
+
+```go
+func ToHaveOutputted(expected string) Matcher[io.Reader] {
+	return HaveString(EqualTo(expected))
+}
+```
