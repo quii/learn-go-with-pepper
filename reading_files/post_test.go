@@ -4,7 +4,7 @@ import (
 	"fmt"
 	. "github.com/quii/pepper"
 	. "github.com/quii/pepper/matchers/comparable"
-	"github.com/quii/pepper/matchers/slice"
+	. "github.com/quii/pepper/matchers/slice"
 	"testing"
 	"testing/fstest"
 )
@@ -30,8 +30,8 @@ M`)},
 	posts, err := NewPostsFromFS(fs)
 
 	ExpectNoError(t, err)
-	Expect(t, posts).To(slice.HaveSize[Post](EqualTo(2)))
-	Expect(t, posts).To(slice.ContainItem(PostEqualTo(
+	Expect(t, posts).To(HaveSize[Post](EqualTo(2)))
+	Expect(t, posts).To(ContainItem(PostEqualTo(
 		Post{
 			Title:       "Post 1",
 			Description: "Description 1",
@@ -40,13 +40,15 @@ M`)},
 World`,
 		}),
 	))
+	Expect(t, posts).To(ContainItem(HaveDescription("Description 2")))
+	Expect(t, posts).To(ContainItem(HaveTags("rust", "borrow-checker")))
 }
 
 func PostEqualTo(want Post) Matcher[Post] {
 	return func(post Post) MatchResult {
 		return HaveTitle(want.Title).
 			And(HaveDescription(want.Description).
-				And(HaveTags(want.Tags)).
+				And(HaveTags(want.Tags...)).
 				And(HaveBody(want.Body)))(post)
 	}
 }
@@ -81,9 +83,9 @@ func HaveDescription(description string) Matcher[Post] {
 	}
 }
 
-func HaveTags(tags []string) Matcher[Post] {
+func HaveTags(tags ...string) Matcher[Post] {
 	return func(actual Post) MatchResult {
-		result := slice.ShallowEquals(tags)(actual.Tags)
+		result := ShallowEquals(tags)(actual.Tags)
 		result.Description = fmt.Sprintf("have tags of %q", tags)
 		result.But = fmt.Sprintf("has %q", actual.Tags)
 		return result
